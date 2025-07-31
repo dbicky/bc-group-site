@@ -1,0 +1,864 @@
+/* Minimalist, clean, responsive styles for the boutique real‑estate site */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+/* Reset some default margins/padding */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9fafb;
+}
+
+header {
+  background-color: #0a1f44;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Nav CTA button */
+.nav-cta {
+  margin-left: auto;
+}
+
+.sticky-cta {
+  display: inline-block;
+  background-color: #3b82f6;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+}
+
+.sticky-cta:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Navigation bar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav .logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #f9fafb;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #60a5fa;
+}
+
+/* Language switcher */
+.lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-switcher button {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  color: #f9fafb;
+}
+
+.lang-switcher button.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 8rem;
+  /* The background image is handled by an img tag (hero-bg) instead of CSS to ensure proper loading */
+  color: #ffffff;
+  position: relative;
+  min-height: 70vh;
+}
+
+/* Position the hero background image to cover the section */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Dark overlay to enhance text contrast while letting the skyline image remain visible */
+  background: linear-gradient(to bottom, rgba(10, 31, 68, 0.6), rgba(10, 31, 68, 0.4));
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.hero-bullets li::before {
+  content: '\2713'; /* checkmark */
+  color: #3b82f6;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.hero .cta {
+  display: inline-block;
+  background-color: #3b82f6;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero .cta:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Sections */
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #222;
+}
+
+/*
+ * About section styling
+ *
+ * The about section introduces the company and its experience. It uses a light
+ * background to separate it from the hero and focuses the reader on the
+ * content. Paragraphs are centered with generous margins to aid
+ * readability. A muted text colour keeps the tone professional.
+ */
+.about {
+  background-color: #f5f5f5;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.6;
+  color: #555;
+}
+
+.about-content p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/*
+ * About section grid layout
+ *
+ * The about section uses a two‑column grid on larger screens to juxtapose
+ * narrative text with a high‑quality interior image. On small screens it
+ * stacks vertically. The image is contained within a rounded card to mirror
+ * the design language of the portfolio and market sections.
+ */
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text {
+  flex: 1 1 400px;
+  padding: 0 1rem;
+  color: #444;
+}
+
+.about-text h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  color: #0a1f44;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.about-image {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/*
+ * Model section styling
+ *
+ * The model section outlines how the business operates. It uses a grid
+ * layout similar to the market section to keep the cards consistent. The
+ * cards have subtle shadows and accent colours to draw attention without
+ * overwhelming the page.
+ */
+#model {
+  background-image: url('images/interior_after.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #ffffff;
+}
+
+/* overlay for model section */
+#model::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 31, 68, 0.6);
+  z-index: 0;
+}
+
+#model > h2,
+#model .model-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.model-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.model-item h3 {
+  color: #0066cc;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.model-item p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Process steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #3b82f6;
+  color: #fff;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.step h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.25rem;
+  color: #0a1f44;
+  font-weight: 600;
+}
+
+.step p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Portfolio */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.portfolio-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-item img {
+  width: 100%;
+  display: block;
+}
+
+.portfolio-caption {
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Founders section */
+#founders {
+  background-color: #f5f7fa;
+}
+
+#founders h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #0a1f44;
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.founder-card {
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.founder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.founder-image {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #3b82f6;
+}
+
+.founder-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founder-card h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+  color: #0a1f44;
+  font-weight: 600;
+}
+
+.founder-role {
+  font-size: 0.9rem;
+  color: #3b82f6;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.founder-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Market data section */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.market-item {
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.market-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.market-item h3 {
+  font-size: 2rem;
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+}
+
+.market-item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Heatmap styles */
+.map-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.map-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.marker {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #3b82f6;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+/* Tooltip for markers using pseudo-element */
+.marker::after {
+  content: attr(data-name) " \2013 " attr(data-price);
+  position: absolute;
+  left: 50%;
+  bottom: 120%;
+  transform: translateX(-50%);
+  background-color: rgba(10, 31, 68, 0.9);
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+
+.marker:hover::after {
+  opacity: 1;
+}
+
+/* Value comparison section */
+#value {
+  background-image: url('images/interior_before.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #ffffff;
+}
+
+#value::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 31, 68, 0.6);
+  z-index: 0;
+}
+
+#value h2 {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.value-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Single column variation for value proposition */
+.value-grid.single {
+  grid-template-columns: 1fr;
+}
+
+.testimonial {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #dbeafe;
+}
+
+.value-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.value-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.value-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e0e7ff;
+}
+
+/* Case study section */
+#case {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+}
+#case h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0a1f44;
+}
+.case-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.case-slider {
+  flex: 1 1 500px;
+  position: relative;
+  overflow: hidden;
+}
+.slide-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%; /* maintain aspect ratio */
+}
+.case-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.case-img.after {
+  clip-path: inset(0 0 0 50%);
+}
+.case-slider .slider {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+}
+.case-details {
+  flex: 1 1 300px;
+  display: flex;
+  align-items: center;
+}
+.case-details p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ROI section */
+#roi {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+}
+#roi h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0a1f44;
+}
+
+.roi-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.roi-stats {
+  flex: 1 1 300px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.roi-stat {
+  background-color: #f5f7fa;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.roi-stat h3 {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  margin-bottom: 0.3rem;
+}
+.roi-stat p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.roi-calculator {
+  flex: 1 1 300px;
+  background-color: #f5f7fa;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.roi-calculator h3 {
+  margin-bottom: 1rem;
+  color: #0a1f44;
+  font-size: 1.3rem;
+}
+.roi-calculator form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.roi-calculator input {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+.roi-calculator button {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.roi-calculator button:hover {
+  background-color: #2563eb;
+}
+.roi-result {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #0a1f44;
+}
+
+/* Work With Us form */
+.form-container {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-container input,
+.form-container textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-container button {
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-container button:hover {
+  background-color: #004b99;
+}
+
+/* FAQ page */
+.faq-item {
+  margin-bottom: 1.5rem;
+}
+
+.faq-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.faq-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .nav ul {
+    gap: 1rem;
+  }
+}
